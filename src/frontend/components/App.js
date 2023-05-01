@@ -9,7 +9,7 @@ import Home from "./Home.js";
 import MyTokens from "./MyTokens.js";
 import MyResales from "./MyResales.js";
 import "./App.css";
-// import Welcome from "./Welcome";
+import Welcome from "./Welcome.js";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -61,6 +61,9 @@ function App() {
                   <Nav.Link as={Link} to="/my-resales">
                     My Resales
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/about">
+                    About
+                  </Nav.Link>
                 </Nav>
                 <Nav>
                   {account ? (
@@ -102,6 +105,7 @@ function App() {
               <Route path="/" element={<Home contract={contract} />} />
               <Route path="/my-tokens" element={<MyTokens contract={contract} />} />
               <Route path="/my-resales" element={<MyResales contract={contract} />} />
+              <Route path="/about" element={<Welcome/>} />
               <Route
                 path="/my-resales"
               />
