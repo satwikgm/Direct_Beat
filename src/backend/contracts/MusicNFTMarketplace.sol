@@ -2,14 +2,21 @@
 pragma solidity ^0.8.4;
 
 // Include necessary functions that give artists , users the ownership of nft token
+// These are basically some conventions that standardize our code for the usage of various online wallets and nft contracts
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract MusicNFTMarketplace is ERC721("DAppFi", "DAPP"), Ownable {
     // Where are all the files
     string public baseURI =
+    "https://bafybeifyoypgamb5itzryyjp2mejtn6eovoamk4b4xwg6h4b4ehvkjsfmm.ipfs.nftstorage.link/";
     // bafybeibdut42kuniewo36ddgj5sbev4sybdqll67ba6cebhi7xtcl6kaxi
-        "https://bafybeibdut42kuniewo36ddgj5sbev4sybdqll67ba6cebhi7xtcl6kaxi.ipfs.nftstorage.link/";
+        // "https://bafybeibiq5nfamauzfovbkrdeaovgnpuphakszmljqmzc7t7tb7f6xqffu.ipfs.nftstorage.link/";
+        // "https://bafybeidhjjbjonyqcahuzlpt7sznmh4xrlbspa3gstop5o47l6gsiaffee.ipfs.nftstorage.link/";
+        // This
+        // "https://bafybeidhjjbjonyqcahuzlpt7sznmh4xrlbspa3gstop5o47l6gsiaffee.ipfs.nftstorage.link/";
+        // "https://bafybeibdut42kuniewo36ddgj5sbev4sybdqll67ba6cebhi7xtcl6kaxi.ipfs.nftstorage.link/";
+        // "https://bafybeibiq5nfamauzfovbkrdeaovgnpuphakszmljqmzc7t7tb7f6xqffu.ipfs.nftstorage.link/";
 
     string public baseExtension = ".json";
     // address of the artist who dropped the album so that we know whom to pay the royalty fee 
@@ -22,9 +29,9 @@ contract MusicNFTMarketplace is ERC721("DAppFi", "DAPP"), Ownable {
     struct MarketItem {
         uint256 tokenId;
         address payable seller;       // Seller who is listing his bought nft at the marketplace
-        uint256 price;          // price at which ihe is listing
+        uint256 price;              // price at which ihe is listing
     }
-    // To contain all marketitems
+    // To contain all marketitems(nft token in our case)
     MarketItem[] public marketItems;
 
     // used in function buyToken
